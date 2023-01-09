@@ -1,5 +1,5 @@
 const { ChatInputCommandInteraction, SlashCommandBuilder } = require('discord.js');
-const {ConnectionPool} = require('mssql');
+const { ConnectionPool } = require('mssql');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,7 +17,7 @@ module.exports = {
     async execute(interaction, con) {
 
         let stringoption = interaction.options.getString('stringone');
-        await interaction.reply({content: `Hello ${stringoption}`});
+        await interaction.reply({ content: `Hello ${stringoption}` });
 
     },
     permissions: "all"

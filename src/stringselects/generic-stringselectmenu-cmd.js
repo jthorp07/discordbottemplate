@@ -1,4 +1,5 @@
-const { SelectMenuInteraction } = require('discord.js');
+const { StringSelectMenuInteraction } = require('discord.js');
+const { ConnectionPool } = require('mssql');
 
 
 module.exports = {
@@ -8,9 +9,10 @@ module.exports = {
     },
     /**
      * 
-     * @param {SelectMenuInteraction} interaction 
+     * @param {StringSelectMenuInteraction} interaction 
+     * @param {ConnectionPool} con
      */
-    async selectExecute(interaction) {
+    async selectExecute(interaction, con) {
 
         //TODO: Implement button command
         await interaction.reply("You pressed a generic selectmenu option!");

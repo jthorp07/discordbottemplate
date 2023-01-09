@@ -1,5 +1,5 @@
-const { CommandInteraction, SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-const mssql = require('mssql');
+const { ChatInputCommandInteraction, SlashCommandBuilder, ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
+const { ConnectionPool } = require('mssql');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -7,19 +7,19 @@ module.exports = {
         .setDescription('Testing modal use'),
     /**
      * 
-     * @param {CommandInteraction} interaction 
-     * @param {mssql.ConnectionPool} con 
+     * @param {ChatInputCommandInteraction} interaction 
+     * @param {ConnectionPool} con 
      */
     async execute(interaction, con) {
 
         let comps = new ActionRowBuilder()
             .setComponents([new TextInputBuilder()
-                                .setCustomId('testtextinput')
-                                .setLabel('Test Text Input')
-                                .setPlaceholder('Enter some text')
-                                .setRequired(true)
-                                .setStyle(TextInputStyle.Short)
-                            ]);
+                .setCustomId('testtextinput')
+                .setLabel('Test Text Input')
+                .setPlaceholder('Enter some text')
+                .setRequired(true)
+                .setStyle(TextInputStyle.Short)
+            ]);
 
         interaction.showModal(
             new ModalBuilder()

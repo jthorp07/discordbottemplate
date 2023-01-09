@@ -57,16 +57,16 @@ function readEmbeds(client) {
 // Select Menus
 function readStringSelectMenus() {
   let smCommandsTemp = new Collection();
-  console.log(`[Startup]: Reading in SelectMenu commands`);
+  console.log(`[Startup]: Reading in StringSelectMenu commands`);
   const smFiles = fs
-    .readdirSync("./selectmenus")
+    .readdirSync("./stringselects")
     .filter((file) => file.endsWith(".js"));
   for (const file of smFiles) {
-    const smCmd = require(`../selectmenus/${file}`);
-    console.log(`  [SelectMenus]: Set menu with ID '${smCmd.data.customId}'`);
+    const smCmd = require(`../stringselects/${file}`);
+    console.log(`  [StringSelectMenus]: Set menu with ID '${smCmd.data.customId}'`);
     smCommandsTemp.set(smCmd.data.customId, smCmd);
   }
-  console.log(`  [SelectMenus]: Finished`);
+  console.log(`  [StringSelectMenus]: Finished`);
   return smCommandsTemp;
 }
 
